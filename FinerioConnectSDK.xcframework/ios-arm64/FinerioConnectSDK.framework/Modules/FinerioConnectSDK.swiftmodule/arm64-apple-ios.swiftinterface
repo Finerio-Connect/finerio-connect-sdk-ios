@@ -1,0 +1,812 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name FinerioConnectSDK
+import CoreLocation
+import CoreTelephony
+@_exported import FinerioConnectSDK
+import Foundation
+import ImageIO
+import SQLite3
+import Swift
+import SystemConfiguration
+import UIKit.UIDevice
+import UIKit
+import _Concurrency
+public typealias Properties = [Swift.String : FinerioConnectSDK.MixpanelType]
+extension UIKit.UITableView {
+  @_Concurrency.MainActor(unsafe) public var cells: [UIKit.UITableViewCell] {
+    get
+  }
+}
+public protocol AppProtocol {
+  func bundleId(_ bundle: Foundation.Bundle) -> Swift.String
+  func getSDKVersion(_ bundle: Foundation.Bundle) -> Swift.String
+  func getVersion(_ bundle: Foundation.Bundle) -> Swift.String
+  func showAlert(title: Swift.String, message: Swift.String, viewController: UIKit.UIViewController, actionHandler: ((UIKit.UIAlertAction) -> Swift.Void)?)
+  func waitForReadyThen(_ onReady: @escaping () -> Swift.Void)
+}
+@_hasMissingDesignatedInitializers public class App : FinerioConnectSDK.AppProtocol {
+  public func bundleId(_ bundle: Foundation.Bundle) -> Swift.String
+  public func getVersion(_ bundle: Foundation.Bundle) -> Swift.String
+  public func getSDKVersion(_ bundle: Foundation.Bundle) -> Swift.String
+  public func showAlert(title: Swift.String, message: Swift.String, viewController: UIKit.UIViewController, actionHandler: ((UIKit.UIAlertAction) -> Swift.Void)?)
+  public func waitForReadyThen(_ onReady: @escaping () -> Swift.Void)
+  @objc deinit
+}
+public enum ResponseType {
+  case succeed
+  case badRequest, unauthorized, upgradeRequired, forbidden, gone
+  case canceled, unprocessable, notFound, unknownError, clientTimeOut, notConnected
+  case conflict, internalError, badGateway, serviceUnavailable, requestTimeOut, gatewayTimeOut
+  public static func == (a: FinerioConnectSDK.ResponseType, b: FinerioConnectSDK.ResponseType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension UIKit.UIImageView {
+  @_Concurrency.MainActor(unsafe) public var currentTask: Foundation.URLSessionDataTask? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public func setImage(with image: Swift.String)
+  @_Concurrency.MainActor(unsafe) public func replaceImage(_ image: UIKit.UIImage, animated: Swift.Bool)
+}
+public struct FCAccountDetail {
+  public let userLabel: Swift.String
+  public let user: Swift.String
+  public let credential: FinerioConnectSDK.FCCredential
+  public let bankFields: [FinerioConnectSDK.FCBankField]
+  public init(userLabel: Swift.String, user: Swift.String, credential: FinerioConnectSDK.FCCredential, bankFields: [FinerioConnectSDK.FCBankField])
+}
+public let fLocaleAlertButtonCancel: Swift.String
+public let fLocaleAlertButtonError: Swift.String
+public let fLocaleAlertButtonOk: Swift.String
+public let fLocaleAlertTitle: Swift.String
+public let fLocaleErrorUnexpected: Swift.String
+public let fLocaleAlertAPIKEYErrorMessage: Swift.String
+public struct FCAccount {
+  public let id: Swift.String
+  public let name: Swift.String
+  public let type: Swift.String
+  public let balance: Swift.Double
+  public let bank: FinerioConnectSDK.FCBank
+  public init(id: Swift.String, name: Swift.String, type: Swift.String, balance: Swift.Double, bank: FinerioConnectSDK.FCBank)
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class FCLabel : UIKit.UILabel {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var text: Swift.String? {
+    @_Concurrency.MainActor(unsafe) @objc get
+    @_Concurrency.MainActor(unsafe) @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class FCCredentialView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) final public func setCredentials(_ credentials: [FinerioConnectSDK.FCCredential])
+  @_Concurrency.MainActor(unsafe) final public func cleanCredentials()
+  @_Concurrency.MainActor(unsafe) final public func getCrendentials() -> [FinerioConnectSDK.FCCredential]
+  @_Concurrency.MainActor(unsafe) final public func getCrendentialsModel() -> [FinerioConnectSDK.FCCredentialModel]
+  @objc deinit
+}
+extension FinerioConnectSDK.FCCredentialView : UIKit.UITableViewDataSource {
+  @_Concurrency.MainActor(unsafe) @objc final public func numberOfSections(in tableView: UIKit.UITableView) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc final public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc final public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+}
+extension FinerioConnectSDK.FCCredentialView : UIKit.UITableViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc final public func tableView(_ tableView: UIKit.UITableView, viewForHeaderInSection section: Swift.Int) -> UIKit.UIView?
+  @_Concurrency.MainActor(unsafe) @objc final public func tableView(_ tableView: UIKit.UITableView, heightForHeaderInSection section: Swift.Int) -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc final public func tableView(_ tableView: UIKit.UITableView, heightForRowAt indexPath: Foundation.IndexPath) -> CoreGraphics.CGFloat
+}
+public protocol MixpanelType {
+  func isValidNestedTypeAndValue() -> Swift.Bool
+  func equals(rhs: FinerioConnectSDK.MixpanelType) -> Swift.Bool
+}
+extension Swift.Optional : FinerioConnectSDK.MixpanelType {
+  public func isValidNestedTypeAndValue() -> Swift.Bool
+  public func equals(rhs: FinerioConnectSDK.MixpanelType) -> Swift.Bool
+}
+extension Swift.String : FinerioConnectSDK.MixpanelType {
+  public func isValidNestedTypeAndValue() -> Swift.Bool
+  public func equals(rhs: FinerioConnectSDK.MixpanelType) -> Swift.Bool
+}
+extension Foundation.NSString : FinerioConnectSDK.MixpanelType {
+  public func isValidNestedTypeAndValue() -> Swift.Bool
+  public func equals(rhs: FinerioConnectSDK.MixpanelType) -> Swift.Bool
+}
+extension Foundation.NSNumber : FinerioConnectSDK.MixpanelType {
+  public func isValidNestedTypeAndValue() -> Swift.Bool
+  public func equals(rhs: FinerioConnectSDK.MixpanelType) -> Swift.Bool
+}
+extension Swift.Int : FinerioConnectSDK.MixpanelType {
+  public func isValidNestedTypeAndValue() -> Swift.Bool
+  public func equals(rhs: FinerioConnectSDK.MixpanelType) -> Swift.Bool
+}
+extension Swift.UInt : FinerioConnectSDK.MixpanelType {
+  public func isValidNestedTypeAndValue() -> Swift.Bool
+  public func equals(rhs: FinerioConnectSDK.MixpanelType) -> Swift.Bool
+}
+extension Swift.Double : FinerioConnectSDK.MixpanelType {
+  public func isValidNestedTypeAndValue() -> Swift.Bool
+  public func equals(rhs: FinerioConnectSDK.MixpanelType) -> Swift.Bool
+}
+extension Swift.Float : FinerioConnectSDK.MixpanelType {
+  public func isValidNestedTypeAndValue() -> Swift.Bool
+  public func equals(rhs: FinerioConnectSDK.MixpanelType) -> Swift.Bool
+}
+extension Swift.Bool : FinerioConnectSDK.MixpanelType {
+  public func isValidNestedTypeAndValue() -> Swift.Bool
+  public func equals(rhs: FinerioConnectSDK.MixpanelType) -> Swift.Bool
+}
+extension Foundation.Date : FinerioConnectSDK.MixpanelType {
+  public func isValidNestedTypeAndValue() -> Swift.Bool
+  public func equals(rhs: FinerioConnectSDK.MixpanelType) -> Swift.Bool
+}
+extension Foundation.URL : FinerioConnectSDK.MixpanelType {
+  public func isValidNestedTypeAndValue() -> Swift.Bool
+  public func equals(rhs: FinerioConnectSDK.MixpanelType) -> Swift.Bool
+}
+extension Foundation.NSNull : FinerioConnectSDK.MixpanelType {
+  public func isValidNestedTypeAndValue() -> Swift.Bool
+  public func equals(rhs: FinerioConnectSDK.MixpanelType) -> Swift.Bool
+}
+extension Swift.Array : FinerioConnectSDK.MixpanelType {
+  public func isValidNestedTypeAndValue() -> Swift.Bool
+  public func equals(rhs: FinerioConnectSDK.MixpanelType) -> Swift.Bool
+}
+extension Foundation.NSArray : FinerioConnectSDK.MixpanelType {
+  public func isValidNestedTypeAndValue() -> Swift.Bool
+  public func equals(rhs: FinerioConnectSDK.MixpanelType) -> Swift.Bool
+}
+extension Swift.Dictionary : FinerioConnectSDK.MixpanelType {
+  public func isValidNestedTypeAndValue() -> Swift.Bool
+  public func equals(rhs: FinerioConnectSDK.MixpanelType) -> Swift.Bool
+}
+public func logInfo(_ message: Swift.String)
+public func logWarn(_ message: Swift.String, filename: Foundation.NSString = #file, line: Swift.Int = #line, funcname: Swift.String = #function)
+public func logError(_ error: Foundation.NSError?, filename: Foundation.NSString = #file, line: Swift.Int = #line, funcname: Swift.String = #function)
+@_hasMissingDesignatedInitializers public class TransactionsFilterData {
+  public static let shared: FinerioConnectSDK.TransactionsFilterData
+  public var shouldApplyFilters: Swift.Bool
+  public var textFilter: Swift.String
+  public var categories: [FinerioConnectSDK.FCCategory]
+  public var categoriesModel: [FinerioConnectSDK.FCCategoryModel]
+  public var credentials: [FinerioConnectSDK.FCCredential]
+  public var credentialsModel: [FinerioConnectSDK.FCCredentialModel]
+  public var isIncomeSelect: Swift.Bool
+  public var isExpensesSelect: Swift.Bool
+  public var isConsideredSelect: Swift.Bool
+  public var isNotConsideredSelect: Swift.Bool
+  public var minAmount: Swift.Double?
+  public var maxAmount: Swift.Double?
+  public var startDate: Foundation.Date?
+  public var endDate: Foundation.Date?
+  public func saveCategories(_ categories: [FinerioConnectSDK.FCCategory])
+  public func saveOriginalCategories(_ categories: [FinerioConnectSDK.FCCategoryModel])
+  public func saveCategoriesModel(_ categoriesModel: [FinerioConnectSDK.FCCategoryModel])
+  public func saveCredentials(_ credentials: [FinerioConnectSDK.FCCredential])
+  public func saveOriginalCredentials(_ credentials: [FinerioConnectSDK.FCCredentialModel])
+  public func saveCredentialsModel(_ credentialsModel: [FinerioConnectSDK.FCCredentialModel])
+  @objc deinit
+}
+public struct FCImage {
+  public let name: Swift.String
+  public let tintColor: UIKit.UIColor?
+  public init(name: Swift.String, tintColor: UIKit.UIColor? = nil)
+}
+public struct FCBalance {
+  public var month: Swift.Int
+  public var totalIncomes: Swift.Double
+  public var totalExpenses: Swift.Double
+  public init(month: Swift.Int, totalIncomes: Swift.Double = 0.0, totalExpenses: Swift.Double = 0.0)
+}
+extension UIKit.UILabel {
+  @_Concurrency.MainActor(unsafe) public func setMargins(_ margin: CoreGraphics.CGFloat = 10)
+  @_Concurrency.MainActor(unsafe) public func setupLabel(text: Swift.String = "", font: UIKit.UIFont = .FCRegularFont(ofSize: 16), color: UIKit.UIColor = .black, textAlignment: UIKit.NSTextAlignment = .left, backgroundColor: UIKit.UIColor = .clear) -> UIKit.UILabel
+}
+extension UIKit.UITextField {
+  @_Concurrency.MainActor(unsafe) public func setMargins(_ margin: CoreGraphics.CGFloat = 10)
+}
+public struct APIFinerioConnectError : Swift.Error {
+  public let error: Swift.String
+  public let message: Swift.String?
+  public let status: FinerioConnectSDK.ResponseType?
+}
+public struct FCCategoryModel {
+  public var isCollapsed: Swift.Bool
+  public var id: Swift.String
+  public var name: Swift.String
+  public var backgroundColor: Swift.String
+  public var textColor: Swift.String
+  public var image: FinerioConnectSDK.FCImage?
+  public var subCategories: [FinerioConnectSDK.FCCategoryModel]?
+  public var hasSelected: Swift.Bool
+}
+final public class FCCategory {
+  final public let id: Swift.String
+  final public var name: Swift.String
+  final public let backgroundColor: Swift.String
+  final public let textColor: Swift.String
+  final public var image: FinerioConnectSDK.FCImage?
+  final public var budget: FinerioConnectSDK.FCBudget?
+  final public let parentCategory: FinerioConnectSDK.FCCategory?
+  final public var subCategories: [FinerioConnectSDK.FCCategory]?
+  public init(id: Swift.String, name: Swift.String, backgroundColor: Swift.String, textColor: Swift.String = "#000000", image: FinerioConnectSDK.FCImage? = nil, budget: FinerioConnectSDK.FCBudget? = nil, parentCategory: FinerioConnectSDK.FCCategory? = nil, subCategories: [FinerioConnectSDK.FCCategory]? = nil)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class FCBaseViewController : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var preferredStatusBarStyle: UIKit.UIStatusBarStyle {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
+  @_Concurrency.MainActor(unsafe) public func getConstraintConstant(firstValue: Swift.Double, secondValue: Swift.Double, value: Swift.Double = 0.0) -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension FinerioConnectSDK.FCBaseViewController {
+  @_Concurrency.MainActor(unsafe) open func hideKeyboardWhenTappedAround()
+  @_Concurrency.MainActor(unsafe) open func addKeyboardObserver()
+  @_Concurrency.MainActor(unsafe) open func removeKeyboardObserver()
+}
+@objc @_Concurrency.MainActor(unsafe) open class DatePickerDialog : UIKit.UIView {
+  public typealias DatePickerCallback = (Foundation.Date?) -> Swift.Void
+  @_Concurrency.MainActor(unsafe) open var datePicker: UIKit.UIDatePicker!
+  @objc @_Concurrency.MainActor(unsafe) public init(textColor: UIKit.UIColor? = nil, buttonColor: UIKit.UIColor? = nil, font: UIKit.UIFont? = nil, locale: Foundation.Locale? = nil, showCancelButton: Swift.Bool = true)
+  @available(*, unavailable)
+  @objc @_Concurrency.MainActor(unsafe) required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) open func show(_ title: Swift.String, doneButtonTitle: Swift.String = "Done", cancelButtonTitle: Swift.String = "Cancel", defaultDate: Foundation.Date = Date(), minimumDate: Foundation.Date? = nil, maximumDate: Foundation.Date? = nil, datePickerMode: UIKit.UIDatePicker.Mode = .dateAndTime, callback: @escaping FinerioConnectSDK.DatePickerDialog.DatePickerCallback)
+  @objc deinit
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+}
+@_hasMissingDesignatedInitializers public class MixpanelHelper {
+  public static let shared: FinerioConnectSDK.MixpanelHelper
+  public func setupInstance(token: Swift.String)
+  public func sendSuperProperties(superProperties: [Swift.String : Swift.String])
+  public func sendEvent(eventName: Swift.String)
+  @objc deinit
+}
+public enum EventName : Swift.String, Swift.Codable {
+  case summary
+  case transactions
+  case analysis
+  case accounts
+  case budgets
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct FCEvent : Swift.Codable {
+  public var deviceId: Swift.String
+  public var event: FinerioConnectSDK.EventName
+  public init(deviceId: Swift.String, event: FinerioConnectSDK.EventName)
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct FinerioConnectAPI {
+}
+extension FinerioConnectSDK.FinerioConnectAPI {
+  public static func validateAPIToken(_ token: Swift.String, completion: @escaping (Swift.Result<Foundation.NSDictionary?, FinerioConnectSDK.APIFinerioConnectError>) -> Swift.Void)
+  public static func trackEvent(event: FinerioConnectSDK.FCEvent, completion: @escaping (Swift.Result<Foundation.NSDictionary?, FinerioConnectSDK.APIFinerioConnectError>) -> Swift.Void)
+}
+@objc @_inheritsConvenienceInitializers @IBDesignable @_Concurrency.MainActor(unsafe) public class ActivityIndicatorView : UIKit.UIView {
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) public var color: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) public var lineWidth: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+extension FinerioConnectSDK.ActivityIndicatorView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var intrinsicContentSize: CoreGraphics.CGSize {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
+}
+extension FinerioConnectSDK.ActivityIndicatorView {
+  @_Concurrency.MainActor(unsafe) public func startAnimating()
+  @_Concurrency.MainActor(unsafe) public func stopAnimating()
+}
+extension UIKit.UIButton {
+  @_Concurrency.MainActor(unsafe) public func fcSetImageTintColor(_ color: UIKit.UIColor)
+}
+extension UIKit.UITextField {
+  @_Concurrency.MainActor(unsafe) public func setPasswordToggleImage(_ button: UIKit.UIButton)
+  @_Concurrency.MainActor(unsafe) public func enablePasswordToggle()
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func togglePasswordView(_ sender: UIKit.UIButton)
+}
+public struct FCTableBalance {
+  public var type: Swift.String
+  public var total: Swift.Double
+  public init(type: Swift.String, total: Swift.Double)
+}
+public struct FCAccountBalance {
+  public let debitAmount: Swift.Double
+  public let creditAmount: Swift.Double
+  public let shortTermBalanceAmount: Swift.Double
+  public let investmentAmount: Swift.Double
+  public let creditsAmount: Swift.Double
+  public let longTermBalanceAmount: Swift.Double
+  public let balanceAmountLabel: Swift.Double
+  public let credentials: [FinerioConnectSDK.FCCredential]
+  public init(debitAmount: Swift.Double, creditAmount: Swift.Double, shortTermBalanceAmount: Swift.Double, investmentAmount: Swift.Double, creditsAmount: Swift.Double, longTermBalanceAmount: Swift.Double, balanceAmountLabel: Swift.Double, credentials: [FinerioConnectSDK.FCCredential] = [])
+}
+extension UIKit.UIImage {
+  public class func gifImageWithData(_ data: Foundation.Data) -> UIKit.UIImage?
+  public class func gifImageWithURL(_ gifUrl: Swift.String) -> UIKit.UIImage?
+  public class func gifImageWithName(_ name: Swift.String) -> UIKit.UIImage?
+}
+@objc final public class Palette : ObjectiveC.NSObject {
+  final public var emptyStateButton: UIKit.UIColor
+  public init(emptyStateButton: UIKit.UIColor = Colors.emptyStateButton)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers final public class Configuration {
+  public static var shared: FinerioConnectSDK.Configuration
+  final public var logLevel: FinerioConnectSDK.FCLogLevel
+  final public var environment: FinerioConnectSDK.FCEnvironment
+  final public let app: FinerioConnectSDK.AppProtocol
+  final public var font: Swift.String
+  final public var isReadySDK: Swift.Bool
+  final public var palette: FinerioConnectSDK.Palette
+  final public var apiKey: Swift.String
+  @objc deinit
+}
+extension UIKit.UIFont {
+  public class func FCLighFont(ofSize size: CoreGraphics.CGFloat) -> UIKit.UIFont
+  public class func FCRegularFont(ofSize size: CoreGraphics.CGFloat) -> UIKit.UIFont
+  public class func FCBoldFont(ofSize size: CoreGraphics.CGFloat) -> UIKit.UIFont
+  public class func FCItalicFont(ofSize size: CoreGraphics.CGFloat) -> UIKit.UIFont
+}
+extension Foundation.DateFormatter {
+  public static func monthFormatter() -> Foundation.DateFormatter
+}
+public struct FCBankField {
+  public let name: Swift.String
+  public let friendlyName: Swift.String
+  public let position: Swift.Int
+  public let type: Swift.String
+  public let required: Swift.Bool?
+  public let bankId: Swift.String
+  public var value: Swift.String?
+  public init(name: Swift.String, friendlyName: Swift.String, position: Swift.Int, type: Swift.String, bankId: Swift.String, required: Swift.Bool? = nil)
+}
+public struct FCBank {
+  public let id: Swift.String
+  public let code: Swift.String
+  public let name: Swift.String
+  public let image: FinerioConnectSDK.FCImage
+  public let status: FinerioConnectSDK.FCBankStatus
+  public init(id: Swift.String, code: Swift.String, name: Swift.String, image: FinerioConnectSDK.FCImage, status: FinerioConnectSDK.FCBankStatus)
+}
+public struct FCCredential {
+  public let id: Swift.String
+  public let name: Swift.String
+  public let balance: Swift.Double
+  public let user: Swift.String
+  public let status: FinerioConnectSDK.FCCredentialStatus
+  public let statusBank: FinerioConnectSDK.FCBankStatus
+  public let lastUpdated: Swift.String
+  public let image: FinerioConnectSDK.FCImage?
+  public let accounts: [FinerioConnectSDK.FCAccount]?
+  public init(id: Swift.String, name: Swift.String, balance: Swift.Double, user: Swift.String, status: FinerioConnectSDK.FCCredentialStatus, statusBank: FinerioConnectSDK.FCBankStatus, lastUpdated: Swift.String, image: FinerioConnectSDK.FCImage?, accounts: [FinerioConnectSDK.FCAccount]? = nil)
+}
+public struct FCResume {
+  public var id: Swift.String
+  public var month: Swift.Int
+  public var year: Swift.Int
+  public var total: Swift.Double
+  public var category: Swift.String
+  public var color: Swift.String
+  public var transactions: [FinerioConnectSDK.FCResumeTransaction]
+  public init(id: Swift.String, month: Swift.Int, year: Swift.Int, total: Swift.Double = 0.0, category: Swift.String = "", color: Swift.String = "", transactions: [FinerioConnectSDK.FCResumeTransaction])
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class FinerioSDK : ObjectiveC.NSObject {
+  public static let shared: FinerioConnectSDK.FinerioSDK
+  final public var logLevel: FinerioConnectSDK.FCLogLevel {
+    get
+    set
+  }
+  final public var font: Swift.String {
+    get
+    set
+  }
+  final public var environment: FinerioConnectSDK.FCEnvironment {
+    get
+    set
+  }
+  final public var isReadySDK: Swift.Bool {
+    get
+    set
+  }
+  final public var apiKey: Swift.String {
+    get
+    set
+  }
+  final public let configuration: FinerioConnectSDK.Configuration
+  final public func configure()
+  final public func setupMixpanel(token: Swift.String)
+  @objc deinit
+}
+public struct FCTransaction {
+  public let id: Swift.String
+  public let date: Foundation.Date
+  public let description: Swift.String
+  public let cleanDescription: Swift.String?
+  public let amount: Swift.Double
+  public let bank: FinerioConnectSDK.FCBank?
+  public let category: FinerioConnectSDK.FCCategory
+  public init(id: Swift.String, date: Foundation.Date, description: Swift.String, cleanDescription: Swift.String? = nil, amount: Swift.Double, bank: FinerioConnectSDK.FCBank? = nil, category: FinerioConnectSDK.FCCategory)
+}
+public func localize(_ key: Swift.String, _ bundle: Foundation.Bundle) -> Swift.String
+public protocol FCEmptyStateViewDelegate : AnyObject {
+  func buttonPressed(_ sender: UIKit.UIButton)
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class FCEmptyStateView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) weak final public var delegate: FinerioConnectSDK.FCEmptyStateViewDelegate?
+  @_Concurrency.MainActor(unsafe) required public init(title: Swift.String, description: Swift.String? = nil, image: FinerioConnectSDK.FCImage? = nil, actionButtonTitle: Swift.String? = nil)
+  @objc deinit
+}
+extension UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public var safeTopAnchor: UIKit.NSLayoutYAxisAnchor {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var safeLeadingAnchor: UIKit.NSLayoutXAxisAnchor {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var safeTrailingAnchor: UIKit.NSLayoutXAxisAnchor {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var safeBottomAnchor: UIKit.NSLayoutYAxisAnchor {
+    get
+  }
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func topAnchor(equalTo anchor: UIKit.NSLayoutYAxisAnchor, constant: CoreGraphics.CGFloat = 0) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func bottomAnchor(equalTo anchor: UIKit.NSLayoutYAxisAnchor, constant: CoreGraphics.CGFloat = 0) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func leadingAnchor(equalTo anchor: UIKit.NSLayoutXAxisAnchor, constant: CoreGraphics.CGFloat = 0) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func trailingAnchor(equalTo anchor: UIKit.NSLayoutXAxisAnchor, constant: CoreGraphics.CGFloat = 0) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func heightAnchor(equalTo constant: CoreGraphics.CGFloat) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func heightAnchor(equalTo anchor: UIKit.NSLayoutDimension, multiplier: CoreGraphics.CGFloat = 1, constant: CoreGraphics.CGFloat = 0) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func widthAnchor(equalTo constant: CoreGraphics.CGFloat) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func widthAnchor(equalTo anchor: UIKit.NSLayoutDimension, multiplier: CoreGraphics.CGFloat = 1, constant: CoreGraphics.CGFloat = 0) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func widthAnchor(greaterThanOrEqualTo constant: CoreGraphics.CGFloat) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func widthAnchor(lessThanOrEqualToConstant constant: CoreGraphics.CGFloat) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func widthAnchor(equalTo anchor: UIKit.NSLayoutDimension, constant: CoreGraphics.CGFloat = 0) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func centerXAnchor(equalTo anchor: UIKit.NSLayoutXAxisAnchor, constant: CoreGraphics.CGFloat = 0) -> Self
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func centerYAnchor(equalTo anchor: UIKit.NSLayoutYAxisAnchor, constant: CoreGraphics.CGFloat = 0) -> Self
+  @_Concurrency.MainActor(unsafe) public func pinAnchors(to anotherView: UIKit.UIView, insets: UIKit.UIEdgeInsets = .zero, usingSafeArea: Swift.Bool = false)
+  @_Concurrency.MainActor(unsafe) public var fcId: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public func view(withId id: Swift.String) -> UIKit.UIView?
+  @_Concurrency.MainActor(unsafe) public func copyView() -> UIKit.UIView
+  @_Concurrency.MainActor(unsafe) public func addBorder(for edges: [UIKit.UIRectEdge], width: CoreGraphics.CGFloat = 1, color: UIKit.UIColor = .systemGray)
+}
+extension UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) weak public var emptyStateView: UIKit.UIView? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public func setEmptyStateView(_ emptyStateView: UIKit.UIView)
+  @_Concurrency.MainActor(unsafe) public func showEmptyStateView()
+  @_Concurrency.MainActor(unsafe) public func hideEmptyStateView()
+}
+extension UIKit.UIDevice {
+  @_Concurrency.MainActor(unsafe) public var iPhoneX: Swift.Bool {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var iPhone: Swift.Bool {
+    get
+  }
+  public enum ScreenType : Swift.String {
+    case iPhones_4_4S
+    case iPhones_5_5s_5c_SE
+    case iPhones_6_6s_7_8
+    case iPhones_6Plus_6sPlus_7Plus_8Plus
+    case iPhones_X_XS
+    case iPhone_XR_11
+    case iPhone_XSMax_ProMax
+    case iPhone_11Pro
+    case unknown
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  @_Concurrency.MainActor(unsafe) public var screenType: UIKit.UIDevice.ScreenType {
+    get
+  }
+}
+public struct Colors {
+  public static let emptyStateButton: UIKit.UIColor
+}
+extension Swift.Result {
+  public var value: Success? {
+    get
+  }
+  public var error: Failure? {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers open class Group {
+  open func set(properties: FinerioConnectSDK.Properties)
+  open func set(property: Swift.String, to: FinerioConnectSDK.MixpanelType)
+  open func setOnce(properties: FinerioConnectSDK.Properties)
+  open func unset(property: Swift.String)
+  open func remove(key: Swift.String, value: FinerioConnectSDK.MixpanelType)
+  open func union(key: Swift.String, values: [FinerioConnectSDK.MixpanelType])
+  open func deleteGroup()
+  @objc deinit
+}
+extension Swift.Double {
+  public var formatAmount: Swift.String {
+    get
+  }
+  public static func decimalFormat(value: Swift.Double, digits: Swift.Int = 2, style: Foundation.NumberFormatter.Style = .none) -> Swift.String
+}
+public struct FCCredentialModel {
+  public var isCollapsed: Swift.Bool
+  public var id: Swift.String
+  public var name: Swift.String
+  public var image: FinerioConnectSDK.FCImage?
+  public var accounts: [FinerioConnectSDK.FCAccountModel]?
+  public var hasSelected: Swift.Bool
+  public init(id: Swift.String, name: Swift.String, image: FinerioConnectSDK.FCImage? = nil, accounts: [FinerioConnectSDK.FCAccountModel]? = nil)
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class BottomSheetViewController : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) public var titleLabel: UIKit.UILabel {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var baseView: UIKit.UIView {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var defaultHeight: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) final public let maximumContainerHeight: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @objc @_Concurrency.MainActor(unsafe) public func handleCloseAction()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) open func setupView()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public enum FCLogLevel : Swift.Int {
+  case none
+  case error
+  case info
+  case debug
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum FCEnvironment {
+  case sandbox
+  case production
+  public static func == (a: FinerioConnectSDK.FCEnvironment, b: FinerioConnectSDK.FCEnvironment) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum FCCredentialStatus {
+  case active
+  case inactive
+  case validate
+  case invalid
+  case token
+  public static func == (a: FinerioConnectSDK.FCCredentialStatus, b: FinerioConnectSDK.FCCredentialStatus) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum FCBankStatus {
+  case active
+  case inactive
+  case partially
+  public static func == (a: FinerioConnectSDK.FCBankStatus, b: FinerioConnectSDK.FCBankStatus) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum FCFieldType : Swift.String {
+  case username
+  case password
+  case securityCodeFinerio
+  case securityCode
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum TransactionType : Swift.Int {
+  case income
+  case expense
+  case balance
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum FCTypeSelection {
+  case category
+  case subcategory
+  case all
+  public static func == (a: FinerioConnectSDK.FCTypeSelection, b: FinerioConnectSDK.FCTypeSelection) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct FCUUID {
+  public static var deviceId: Swift.String {
+    get
+  }
+}
+public class FCBudget {
+  public var id: Swift.String?
+  public var totalAmount: Swift.Double
+  public var spentAmount: Swift.Double
+  public var percentage: Swift.Double
+  public var isGrandTotal: Swift.Bool
+  public var amountAvailable: Swift.Double {
+    get
+  }
+  public init(id: Swift.String? = nil, totalAmount: Swift.Double = 0, spentAmount: Swift.Double = 0, percentage: Swift.Double = 0, isGrandTotal: Swift.Bool = false)
+  @objc deinit
+}
+extension UIKit.UIColor {
+  convenience public init?(hex: Swift.String)
+}
+extension Swift.String {
+  public func trim(to maximumCharacters: Swift.Int) -> Swift.String
+  public func removeFormatAmount() -> Swift.Double
+  public var isURL: Swift.Bool {
+    get
+  }
+  public var isEmptyStr: Swift.Bool {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class PaddedTextField : UIKit.UITextField {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func textRect(forBounds bounds: CoreGraphics.CGRect) -> CoreGraphics.CGRect
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func placeholderRect(forBounds bounds: CoreGraphics.CGRect) -> CoreGraphics.CGRect
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func editingRect(forBounds bounds: CoreGraphics.CGRect) -> CoreGraphics.CGRect
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension Foundation.Date {
+  public var month: Swift.Int {
+    get
+  }
+  public var year: Swift.Int {
+    get
+  }
+  public func string(with format: Swift.String) -> Swift.String
+}
+extension Swift.Sequence {
+  public func sum<T>(_ keyPath: Swift.KeyPath<Self.Element, T>) -> T where T : Swift.AdditiveArithmetic
+}
+public struct FCAccountModel {
+  public let id: Swift.String
+  public let name: Swift.String
+  public let type: Swift.String
+  public let balance: Swift.Double
+  public let bank: FinerioConnectSDK.FCBank
+  public var hasSelected: Swift.Bool
+  public init(id: Swift.String, name: Swift.String, type: Swift.String, balance: Swift.Double, bank: FinerioConnectSDK.FCBank)
+}
+public protocol FCCategoryViewDelegate {
+  func didChooseCategory(_ category: FinerioConnectSDK.FCCategory)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class FCCategoryView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) final public var delegate: FinerioConnectSDK.FCCategoryViewDelegate?
+  @_Concurrency.MainActor(unsafe) final public var typeSelection: FinerioConnectSDK.FCTypeSelection
+  @_Concurrency.MainActor(unsafe) final public func setCategories(_ categories: [FinerioConnectSDK.FCCategory])
+  @_Concurrency.MainActor(unsafe) final public func cleanCategories()
+  @_Concurrency.MainActor(unsafe) final public func getCategories() -> [FinerioConnectSDK.FCCategory]
+  @_Concurrency.MainActor(unsafe) final public func getCategoriesModel() -> [FinerioConnectSDK.FCCategoryModel]
+  @objc deinit
+}
+extension FinerioConnectSDK.FCCategoryView : UIKit.UITableViewDataSource {
+  @_Concurrency.MainActor(unsafe) @objc final public func numberOfSections(in tableView: UIKit.UITableView) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc final public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc final public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+}
+extension FinerioConnectSDK.FCCategoryView : UIKit.UITableViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc final public func tableView(_ tableView: UIKit.UITableView, viewForHeaderInSection section: Swift.Int) -> UIKit.UIView?
+  @_Concurrency.MainActor(unsafe) @objc final public func tableView(_ tableView: UIKit.UITableView, heightForHeaderInSection section: Swift.Int) -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc final public func tableView(_ tableView: UIKit.UITableView, heightForRowAt indexPath: Foundation.IndexPath) -> CoreGraphics.CGFloat
+}
+@_hasMissingDesignatedInitializers final public class FontBlaster {
+  public static var debugEnabled: Swift.Bool
+  public static var loadedFonts: [Swift.String]
+  final public class func blast(bundle: Foundation.Bundle = Bundle.main)
+  final public class func blast(bundle: Foundation.Bundle = Bundle.main, completion handler: (([Swift.String]) -> Swift.Void)?)
+  @objc deinit
+}
+public struct FCResumeTransaction {
+  public let id: Swift.String
+  public let date: Swift.String
+  public let description: Swift.String
+  public let amount: Swift.Double
+  public let category: FinerioConnectSDK.FCCategory
+  public init(id: Swift.String, date: Swift.String, description: Swift.String, amount: Swift.Double, category: FinerioConnectSDK.FCCategory)
+}
+public struct FCCredentialBankField {
+  public var user: Swift.String?
+  public var password: Swift.String
+  public var securityCode: Swift.String?
+  public init()
+}
+@_hasMissingDesignatedInitializers open class People {
+  open var ignoreTime: Swift.Bool
+  open func set(properties: FinerioConnectSDK.Properties)
+  open func set(property: Swift.String, to: FinerioConnectSDK.MixpanelType)
+  open func setOnce(properties: FinerioConnectSDK.Properties)
+  open func unset(properties: [Swift.String])
+  open func increment(properties: FinerioConnectSDK.Properties)
+  open func increment(property: Swift.String, by: Swift.Double)
+  open func append(properties: FinerioConnectSDK.Properties)
+  open func remove(properties: FinerioConnectSDK.Properties)
+  open func union(properties: FinerioConnectSDK.Properties)
+  open func trackCharge(amount: Swift.Double, properties: FinerioConnectSDK.Properties? = nil)
+  open func clearCharges()
+  open func deleteUser()
+  @objc deinit
+}
+extension FinerioConnectSDK.ResponseType : Swift.Equatable {}
+extension FinerioConnectSDK.ResponseType : Swift.Hashable {}
+extension FinerioConnectSDK.EventName : Swift.Equatable {}
+extension FinerioConnectSDK.EventName : Swift.Hashable {}
+extension FinerioConnectSDK.EventName : Swift.RawRepresentable {}
+extension UIKit.UIDevice.ScreenType : Swift.Equatable {}
+extension UIKit.UIDevice.ScreenType : Swift.Hashable {}
+extension UIKit.UIDevice.ScreenType : Swift.RawRepresentable {}
+extension FinerioConnectSDK.FCLogLevel : Swift.Equatable {}
+extension FinerioConnectSDK.FCLogLevel : Swift.Hashable {}
+extension FinerioConnectSDK.FCLogLevel : Swift.RawRepresentable {}
+extension FinerioConnectSDK.FCEnvironment : Swift.Equatable {}
+extension FinerioConnectSDK.FCEnvironment : Swift.Hashable {}
+extension FinerioConnectSDK.FCCredentialStatus : Swift.Equatable {}
+extension FinerioConnectSDK.FCCredentialStatus : Swift.Hashable {}
+extension FinerioConnectSDK.FCBankStatus : Swift.Equatable {}
+extension FinerioConnectSDK.FCBankStatus : Swift.Hashable {}
+extension FinerioConnectSDK.FCFieldType : Swift.Equatable {}
+extension FinerioConnectSDK.FCFieldType : Swift.Hashable {}
+extension FinerioConnectSDK.FCFieldType : Swift.RawRepresentable {}
+extension FinerioConnectSDK.TransactionType : Swift.Equatable {}
+extension FinerioConnectSDK.TransactionType : Swift.Hashable {}
+extension FinerioConnectSDK.TransactionType : Swift.RawRepresentable {}
+extension FinerioConnectSDK.FCTypeSelection : Swift.Equatable {}
+extension FinerioConnectSDK.FCTypeSelection : Swift.Hashable {}

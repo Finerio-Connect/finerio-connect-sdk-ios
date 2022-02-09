@@ -1,0 +1,11 @@
+framework module FinerioConnectSDK {
+  umbrella header "FinerioConnectSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module FinerioConnectSDK.Swift {
+    header "FinerioConnectSDK-Swift.h"
+    requires objc
+}
