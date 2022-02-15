@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = "FinerioConnectSDK"
-  s.version               = "1.1.0"
+  s.version               = "1.1.1"
   s.swift_version         = '5.0'
   s.summary               = "Finerio Connect SDK"
   s.homepage              = "https://finerioconnect.com"
