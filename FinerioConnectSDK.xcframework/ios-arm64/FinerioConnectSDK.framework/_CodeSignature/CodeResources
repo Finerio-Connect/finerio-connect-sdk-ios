@@ -6,11 +6,11 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		Eq4aX3Nr0fj0R6cP20yFBaf4T6E=
+		txFO/Bo5ttdWQoDl9nb/3hGGFX0=
 		</data>
 		<key>Headers/FinerioConnectSDK-Swift.h</key>
 		<data>
-		ACbQxrztV8bSVsyd1YbdvwlySaw=
+		6L6Eanbct7D0ZpPNI2NaH7n3zwY=
 		</data>
 		<key>Headers/FinerioConnectSDK.h</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		1TsmgW47sOVapWxVijn4hd0Csl4=
+		PFBn1VhM9WON5lOnLrjhgnMIY9c=
 		</data>
 		<key>Localizable.strings</key>
 		<data>
@@ -26,27 +26,15 @@
 		</data>
 		<key>Modules/FinerioConnectSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		xgbmS9OCLP0qcPBT/GIDS01UYV0=
+		dKmSXRHUvJRxRXuFhTRyN9v6y9s=
 		</data>
 		<key>Modules/FinerioConnectSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		KmHcHjSyB7vboz27AfYziPx3lno=
+		33fJTchUwxmseDv+bI2EHOowJfM=
 		</data>
 		<key>Modules/FinerioConnectSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		iztrWvdQmDd9tz5Z9NS2oaQotFY=
-		</data>
-		<key>Modules/FinerioConnectSDK.swiftmodule/arm64.swiftdoc</key>
-		<data>
-		xgbmS9OCLP0qcPBT/GIDS01UYV0=
-		</data>
-		<key>Modules/FinerioConnectSDK.swiftmodule/arm64.swiftinterface</key>
-		<data>
-		KmHcHjSyB7vboz27AfYziPx3lno=
-		</data>
-		<key>Modules/FinerioConnectSDK.swiftmodule/arm64.swiftmodule</key>
-		<data>
-		iztrWvdQmDd9tz5Z9NS2oaQotFY=
+		3PPKIXFQxj7AXK75GQTLRd7VkGU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -59,14 +47,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			pPb8UhkG93uRkfTpxccvXNFywz5akL4yDw5GcxMzsmQ=
+			8XH/YiqTuQ4GVf45vLCKwQ8VthC8M65qltIZ3UC8Y40=
 			</data>
 		</dict>
 		<key>Headers/FinerioConnectSDK-Swift.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			150wsahAf/zKyJo0g+qao05Ws+TClvcwVPYcaU3Osuo=
+			OnA5vExODbNvnCcuEtGYRIoyiEJbfbWkwmImgZkzu58=
 			</data>
 		</dict>
 		<key>Headers/FinerioConnectSDK.h</key>
@@ -87,42 +75,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			I+4u9IzRoGOhPRoNX0mL0sNiEvcjXCGERr07PkrcYv0=
+			2i4f/KnZ1mCTddyR7a3J4xxF9J323hYYOrEZxB4jXRw=
 			</data>
 		</dict>
 		<key>Modules/FinerioConnectSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			K2ooPQ7QGNBeRNVVkeMfdzCaKD6deMelbbkUmGM6Mk8=
+			A1MuujjRmUz3y2EzVFNaxvYB1tH6le/eGQ2nhbIKYWc=
 			</data>
 		</dict>
 		<key>Modules/FinerioConnectSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			QsEU7VNvRyo/7qKyNmtrwqoX69vSBOaYc3lx5DfYh4o=
-			</data>
-		</dict>
-		<key>Modules/FinerioConnectSDK.swiftmodule/arm64.swiftdoc</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			I+4u9IzRoGOhPRoNX0mL0sNiEvcjXCGERr07PkrcYv0=
-			</data>
-		</dict>
-		<key>Modules/FinerioConnectSDK.swiftmodule/arm64.swiftinterface</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			K2ooPQ7QGNBeRNVVkeMfdzCaKD6deMelbbkUmGM6Mk8=
-			</data>
-		</dict>
-		<key>Modules/FinerioConnectSDK.swiftmodule/arm64.swiftmodule</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			QsEU7VNvRyo/7qKyNmtrwqoX69vSBOaYc3lx5DfYh4o=
+			fWCSqZ2nuZRFe2GgJGmjry8lzGm3Os7BzEt4DINFNkY=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
