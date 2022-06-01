@@ -6,11 +6,11 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		txFO/Bo5ttdWQoDl9nb/3hGGFX0=
+		LjGrbnowL7b6BhZx9lRQdU0RuQ0=
 		</data>
 		<key>Headers/FinerioConnectSDK-Swift.h</key>
 		<data>
-		6L6Eanbct7D0ZpPNI2NaH7n3zwY=
+		D8gDuAo0njmAEc14tHIMtx6gFqQ=
 		</data>
 		<key>Headers/FinerioConnectSDK.h</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		PFBn1VhM9WON5lOnLrjhgnMIY9c=
+		XLZ6VpGN39iy6/6Sv99GDTiikX4=
 		</data>
 		<key>Localizable.strings</key>
 		<data>
@@ -26,15 +26,15 @@
 		</data>
 		<key>Modules/FinerioConnectSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		dKmSXRHUvJRxRXuFhTRyN9v6y9s=
+		wbH2zOuBeEz6BgNP7BP4lR6mdNo=
 		</data>
 		<key>Modules/FinerioConnectSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		33fJTchUwxmseDv+bI2EHOowJfM=
+		1Atva/np+wO4p+hveRkeVqm95Dc=
 		</data>
 		<key>Modules/FinerioConnectSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		3PPKIXFQxj7AXK75GQTLRd7VkGU=
+		ptYgO+E/jtqW4mKhNmv0eWUHYPE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -47,14 +47,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			8XH/YiqTuQ4GVf45vLCKwQ8VthC8M65qltIZ3UC8Y40=
+			X0iBpReUJ2iPJyYm0/8dbJ7NP1CIm78hI3pcOhchpDw=
 			</data>
 		</dict>
 		<key>Headers/FinerioConnectSDK-Swift.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			OnA5vExODbNvnCcuEtGYRIoyiEJbfbWkwmImgZkzu58=
+			Yv9ik7f5crkiJ3XucpZ2YksMaZ5VKER1U5uq5ga+O64=
 			</data>
 		</dict>
 		<key>Headers/FinerioConnectSDK.h</key>
@@ -75,21 +75,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			2i4f/KnZ1mCTddyR7a3J4xxF9J323hYYOrEZxB4jXRw=
+			qoaj2kj0sL4PypXT9mUHOI5r37sekxEqDaozfF7nHRI=
 			</data>
 		</dict>
 		<key>Modules/FinerioConnectSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			A1MuujjRmUz3y2EzVFNaxvYB1tH6le/eGQ2nhbIKYWc=
+			lvb7gBFzT3XZJUbyHzqOiwc2TCl54XGR5ZccWy7nJmg=
 			</data>
 		</dict>
 		<key>Modules/FinerioConnectSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			fWCSqZ2nuZRFe2GgJGmjry8lzGm3Os7BzEt4DINFNkY=
+			P0AvQ7ynODIg2WzW+VBNv+ZkGS/6jpxziMCBFXj9R88=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
